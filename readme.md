@@ -8,7 +8,7 @@ An utility to easily write and test your [anticore](https://github.com/Lcfvs/ant
 
 ## <a name="live-demo">Live demo</a>
 
-[anticore-serverless demo](https://stackblitz.com/edit/anticore-ajax-emulator?file=templaters%2Fmessage.js)
+[anticore-serverless demo](https://stackblitz.com/edit/anticore-serverless)
 
 ## <a name="usage">Usage</a>
 
