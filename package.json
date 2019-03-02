@@ -1,0 +1,27 @@
+{
+  "name": "anticore-serverless",
+  "version": "1.0.0",
+  "description": "An utility to easily write and test your anticore's middlewares, serverless",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lcfvs/anticore-serverless.git"
+  },
+  "keywords": [
+    "anticore",
+    "middlewares",
+    "serverless"
+  ],
+  "author": "lcf.vs <michael.rouges@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lcfvs/anticore-serverless/issues"
+  },
+  "homepage": "https://github.com/Lcfvs/anticore-serverless#readme",
+  "dependencies": {
+    "anticore": "^2.24.6"
+  }
+}
