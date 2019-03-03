@@ -12,6 +12,8 @@ An utility to easily write and test your [anticore](https://github.com/Lcfvs/ant
 
 ## <a name="usage">Usage</a>
 
+### <a name="listen-a-form-submit">Listen a form `submit`</a>
+
 Supposing you have a middleware to add some new messages to a messages list, like this:
 
 ```js
@@ -30,10 +32,47 @@ Register your templater like this:
 ```js
 import serverless from 'anticore-serverless'
 
-serverless.on('main#message-sender form', (data, escape) => {
+serverless.on('main#message-sender form', (url, data, escape) => {
   return `<ol id="messages">
     <li>${escape(data.message)}</li>
   </ol>`
+})
+```
+
+### <a name="listen-an-anchor-click">Listen an anchor `click`</a>
+
+
+
+Supposing you have a middleware to load a new view, like this:
+
+```js
+import { anticore } from 'anticore'
+import { onClick } from 'anticore/dom/emitter/on/onClick'
+import { one } from 'anticore/dom/query/one'
+import { replace } from 'anticore/dom/tree/replace'
+
+
+anticore.on('section.hello', (section, next) => {
+  const main = one('main')
+
+  replace(section, main)
+  onClick(one('section .closer'), () => replace(main, section))
+
+  next()
+})
+```
+
+Register your templater like this:
+
+```js
+import serverless from 'anticore-serverless'
+
+serverless.on('a[href="/say-hello"]', (url, escape) => {
+  return `<section class="hello">
+    <h1>Hello world</h1>
+    <p>You asked the following url : ${escape(url)}</p>
+    <button class="closer">Close</button>
+  </section>`
 })
 ```
 
