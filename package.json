@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Lcfvs/anticore-serverless#readme",
   "dependencies": {
-    "anticore": "^2.24.7"
+    "anticore": "^2.24.8"
   }
 }
