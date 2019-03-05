@@ -6,7 +6,6 @@ import emit from './utils/emit'
 import escape from './utils/escape'
 import serialize from './utils/serialize'
 
-
 export default {
   /**
    * Listens a form/anchor selector and sends the response to anticore, based

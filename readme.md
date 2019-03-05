@@ -56,7 +56,7 @@ anticore.on('section.hello', (section, next) => {
   const main = one('main')
 
   replace(section, main)
-  onClick(one('section .closer'), () => replace(main, section))
+  onClick(one('.closer', section), () => replace(main, section))
 
   next()
 })
