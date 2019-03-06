@@ -1,6 +1,6 @@
 {
   "name": "anticore-serverless",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "An utility to easily write and test your anticore's middlewares, serverless",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Lcfvs/anticore-serverless#readme",
   "dependencies": {
-    "anticore": "^2.24.8"
+    "anticore": "^2.25.0"
   }
 }

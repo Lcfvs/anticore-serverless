@@ -18,12 +18,15 @@ export default {
     anticore.on(selector, (element, next) => {
       if (nodeName(element) === 'form') {
         onSubmit(element, event => {
-          emit(event, templater(element.action, serialize(element), escape))
-          element.reset()
+          const url = element.action
+
+          emit(event, url, templater(url, serialize(element), escape))
         })
       } else {
         onClick(element, event => {
-          emit(event, templater(element.href, escape))
+          const url = element.href
+
+          emit(event, url, templater(url, escape))
         })
       }
 
