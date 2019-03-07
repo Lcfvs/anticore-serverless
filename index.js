@@ -3,10 +3,7 @@ import { onClick } from 'anticore/dom/emitter/on/onClick'
 import { onSubmit } from 'anticore/dom/emitter/on/onSubmit'
 import { nodeName } from 'anticore/dom/info/nodeName'
 import { global } from 'anticore/global'
-import emit from './utils/emit'
-import escape from './utils/escape'
-import resolve from './utils/resolve'
-import serialize from './utils/serialize'
+import { a, form } from './emitter'
 
 const FormData = global().FormData
 
@@ -22,23 +19,13 @@ export default {
     anticore.on(selector, (element, next) => {
       if (nodeName(element) === 'form') {
         onSubmit(element, event => {
-          let url = element.action
-          let data = new FormData(element)
+          const method = (element.method || 'get').toLowerCase()
 
-          if (element.method.toString().toLowerCase() === 'post') {
-            data = serialize(data)
-          } else {
-            data = null
-            url = resolve(url, data)
-          }
-
-          emit(event, url, templater(url, data, escape))
+          form[method](event, templater, element.action, new FormData(element))
         })
       } else {
         onClick(element, event => {
-          const url = element.href
-
-          emit(event, url, templater(url, escape))
+          a.get(event, element.href, templater)
         })
       }
 
