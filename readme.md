@@ -32,7 +32,7 @@ Register your templater like this:
 ```js
 import serverless from 'anticore-serverless'
 
-serverless.on('main#message-sender form', (url, data, escape) => {
+serverless.on('main#message-sender form', (url, data, escape, session) => {
   return `<ol id="messages">
     <li>${escape(data.message)}</li>
   </ol>`
@@ -67,7 +67,7 @@ Register your templater like this:
 ```js
 import serverless from 'anticore-serverless'
 
-serverless.on('a[href="/say-hello"]', (url, escape) => {
+serverless.on('a[href="/say-hello"]', (url, escape, session) => {
   return `<section class="hello">
     <h1>Hello world</h1>
     <p>You asked the following url : ${escape(url)}</p>
@@ -89,6 +89,14 @@ serverless.on('a[href="/say-hello"]', (url, escape) => {
 import serverless from 'anticore-serverless'
 
 serverless.on(selector, templater)
+```
+
+## <a name="session">Session</a>
+
+```js
+session = session.set(name, value)
+value = session.get(name)
+session = session.reset()
 ```
 
 ## <a name="license">License</a>

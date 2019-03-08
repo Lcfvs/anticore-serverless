@@ -1,6 +1,6 @@
 {
   "name": "anticore-serverless",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "An utility to easily write and test your anticore's middlewares, serverless",
   "main": "index.js",
   "scripts": {
